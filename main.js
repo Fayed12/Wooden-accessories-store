@@ -95,3 +95,83 @@ window.setInterval(() => {
 }, 5000)
 
 // ===============================================================================================
+
+// functionalty of swiper
+
+var swiper = new Swiper(".mySwiper", {
+    navigation: {
+        nextEl: ".swiper-button-custom-next",
+        prevEl: ".swiper-button-custom-prev",
+    },
+    loop: true,
+    spaceBetween: 20,
+    slidesPerView: 4,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+    },
+    // Responsive design
+    breakpoints: {
+        0: {
+            slidesPerView: 1
+        },
+        768: {
+            slidesPerView: 2
+        },
+        992: {
+            slidesPerView: 3
+        },
+        1024: {
+            slidesPerView: 4 
+        }
+    }
+});
+
+var swiper = new Swiper(".mySwiperTwo", {
+    pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+    },
+    loop: true,
+});
+
+// ===============================================================================================
+
+// functionalty of JSON file
+
+let swiperSlides = document.querySelectorAll(".swiper-slide .slide-content .image img")
+let slideprice = document.querySelectorAll(".swiper-slide .slide-content .slide-header .price")
+let slidetilte = document.querySelectorAll(".swiper-slide .slide-content .slide-footer .title .name")
+// fetch the json file to website
+
+fetch("main.json").then((x) => {
+    let y = x.json()
+    return y;
+}).then((y) => {
+
+    // selcet the only first 5 products
+    y.length = 5;
+    let slidearray = [...y]
+
+    // add image src to product slide
+    swiperSlides.forEach((element, i) => {
+        element.setAttribute("src", slidearray[i].image)
+    })
+
+    // add price to product slide
+    slideprice.forEach((element, i) => {
+        element.textContent = "$ " + slidearray[i].price
+    })
+
+    // add price to product slide
+    slidetilte.forEach((element, i) => {
+        element.textContent = slidearray[i].title;
+    })
+})
+
+
+// ===============================================================================================
