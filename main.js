@@ -49,6 +49,17 @@ document.addEventListener("click", (e) => {
     };
 })
 
+window.onscroll = (e) => {
+    if (menu.classList.contains("display")) {
+        // Check if click is outside the navbar and button
+        if (!barContent.contains(e.target) && (!menu.contains(e.target))) {
+            menu.classList.toggle("display")
+            spanOne.classList.toggle("left");
+            spanTwo.classList.toggle("hide");
+            spanThree.classList.toggle("right");
+        }
+    };
+}
 // ===============================================================================================
 
 // functionalty of silder Content
@@ -107,7 +118,7 @@ var swiper = new Swiper(".mySwiper", {
     spaceBetween: 20,
     slidesPerView: 4,
     autoplay: {
-        delay: 3000,
+        delay: 4000,
         disableOnInteraction: false
     },
     // Responsive design
@@ -133,7 +144,7 @@ var swiper = new Swiper(".mySwiperTwo", {
         dynamicBullets: true,
     },
     autoplay: {
-        delay: 3000,
+        delay: 4000,
         disableOnInteraction: false
     },
     loop: true,
@@ -175,3 +186,77 @@ fetch("main.json").then((x) => {
 
 
 // ===============================================================================================
+
+// functionalty of date in Indoor Furniture
+
+let days = document.getElementById("days")
+let hour = document.getElementById("hour")
+let min = document.getElementById("min")
+let second = document.getElementById("second")
+
+// Load from localStorage or set defaults
+days.textContent = localStorage.getItem("days");
+hour.textContent = localStorage.getItem("hour");
+min.textContent = localStorage.getItem("min");
+second.textContent = localStorage.getItem("second");
+
+let timeover = setInterval(() => {
+    let s = Number(second.textContent);
+    let m = Number(min.textContent);
+    let h = Number(hour.textContent);
+    let d = Number(days.textContent);
+    if (d === 0 && h === 0 && m === 0 && s === 0) {
+        clearInterval(timeover);
+        return;
+    }
+    
+    if (s> 0 ) {
+        s--;
+    } else {
+        s = 59;
+        
+        if (m > 0) {
+            m--;
+
+        } else {
+            m = 59;
+            
+            if (h> 0) {
+                h--;
+
+            } else {
+                h = 23;
+                
+                if (d> 0) {
+                    d--;
+
+                } else if(d == 0){
+                    second.textContent = 59;
+                    min.textContent = 59;
+                    hour.textContent = 23;
+
+                } else if(d< 0 ){
+                    clearInterval(timeover);
+                }
+            }
+        }
+    }
+
+    // Update DOM
+    second.textContent = s;
+    min.textContent = m;
+    hour.textContent = h;
+    days.textContent = d;
+
+    // Update localStorage
+
+    localStorage.setItem("second", s);
+    localStorage.setItem("min", m);
+    localStorage.setItem("hour", h);
+    localStorage.setItem("days", d);
+}, 1000)
+
+
+// ===============================================================================================
+
+// functionalty of date in Indoor Furniture
