@@ -259,4 +259,44 @@ let timeover = setInterval(() => {
 
 // ===============================================================================================
 
-// functionalty of date in Indoor Furniture
+// functionalty of online products categories
+
+let categoriesSpan = document.querySelectorAll(".categories ul li span")
+
+// function to remove all active class from all elements before any process
+function removeAllActive() {
+    let spanarray = [...categoriesSpan]
+    for (let i = 0; i < spanarray.length; i++) {
+        if (spanarray[i].classList.contains("active")) {
+            spanarray[i].classList.remove("active")
+        }
+    }
+}
+
+// go through all categoriesSpan and handel it 
+categoriesSpan.forEach((e) => {
+
+    // load from localstorage
+    let textFromlocalstorage = window.localStorage.getItem("activespan")
+    if (e.textContent == textFromlocalstorage) {
+        removeAllActive();
+        e.classList.add("active")
+    }
+
+    // add active to element when user press
+    e.addEventListener("click", () => {
+        removeAllActive();
+        e.classList.add("active")
+        window.localStorage.setItem("activespan", e.textContent)
+    })
+});
+
+
+// fetch the products from local storage
+
+fetch("main.json").then((x) => {
+    let resultProducts = x.json();
+    return resultProducts;
+}).then((onlineProducts) => {
+    onlineProducts.length = 10;
+})

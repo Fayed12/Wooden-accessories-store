@@ -5,7 +5,8 @@
         "price": 56.20,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
-        "image": "./images/1.webp"
+        "image": "./images/1.webp",
+        "status" : "New Arrivals"
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "price": 40.99,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
-        "image": "./images/5.webp"
+        "image": "./images/5.webp",
+        "status": "Best Seller"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "price": 69,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
-        "image": "./images/12.webp"
+        "image": "./images/12.webp",
+        "status": "New Arrivals"
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "price": 70,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
-        "image": "./images/6.webp"
+        "image": "./images/6.webp",
+        "status": "Discounts"
     },
     {
         "id": 5,
@@ -37,6 +41,52 @@
         "price": 90.80,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
-        "image": "./images/8.webp"
+        "image": "./images/8.webp",
+        "status": "Best Seller"
+    },
+    {
+        "id": 6,
+        "title": "boiled egg holder",
+        "price": 10.80,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
+        "category": "Product",
+        "image": "./images/online2.webp",
+        "status": "Best Seller"
+    },
+    {
+        "id": 7,
+        "title": "sponge chair",
+        "price": 63.80,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
+        "category": "Product",
+        "image": "./images/online3.webp",
+        "status": "Best Seller"
+    },
+    {
+        "id": 8,
+        "title": "seed keeper",
+        "price": 90.80,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
+        "category": "Product",
+        "image": "./images/3.webp",
+        "status": "Best Seller"
+    },
+    {
+        "id": 9,
+        "title": "wooden wheelchair",
+        "price": 90.80,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
+        "category": "Product",
+        "image": "./images/4.jpg",
+        "status": "Best Seller"
+    },
+    {
+        "id": 10,
+        "title": "wooden dressing table",
+        "price": 90.80,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
+        "category": "Product",
+        "image": "./images/online4.webp",
+        "status": "Best Seller"
     }
 ]
