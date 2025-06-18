@@ -293,10 +293,74 @@ categoriesSpan.forEach((e) => {
 
 
 // fetch the products from local storage
+let cardContainer = document.getElementById("cardContainer")
+
 
 fetch("main.json").then((x) => {
     let resultProducts = x.json();
     return resultProducts;
 }).then((onlineProducts) => {
     onlineProducts.length = 10;
+    console.log(onlineProducts[0])
+    onlineProducts.forEach((e) => {
+        // create the box div 
+        let box = document.createElement("div");
+        box.className = "grid-item"
+        
+        // Get the rating value 
+        let rating =(e.stars || 0);
+
+        // Generate stars
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars += `<i class="fa-solid fa-star"></i>`; 
+            } else {
+                stars += `<i class="fa-regular fa-star"></i>`;
+            }
+        }
+
+        // create the box content
+        box.innerHTML = `<div class="slide-content">
+                                    <div class="slide-header d-flex j-between align-center">
+                                        <span class="d-block new">New</span>
+                                        <div>
+                                            <span class="price">$ ${e.price}</span>
+                                            <span class="price"><del>$ ${e.mainprice}</del></span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="${e.image}" alt="images">
+                                    </div>
+                                    <div class="slide-footer">
+                                        <div class="title f-center f-d-column">
+                                            <p class="name">${e.title}</p>
+                                            <div class="rate">
+                                                ${stars}
+                                            </div>
+                                        </div>
+                                        <div class="services d-flex">
+                                            <div class="wishlist">
+                                                <a href="#" title="wishlist">
+                                                    <i class="fa-regular fa-heart"></i>
+                                                </a>
+                                            </div>
+                                            <div class="view">
+                                                <i class="fa-solid fa-magnifying-glass-plus" title="overview"></i>
+                                            </div>
+                                            <div class="compare">
+                                                <i class="fa-solid fa-rotate" title="compare"></i>
+                                            </div>
+                                            <div class="add-cart">
+                                                <a href="#" title="addcart">
+                                                    <i class="fa-solid fa-cart-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>`
+        
+        // append box to main card container 
+        cardContainer.append(box)
+    })
 })

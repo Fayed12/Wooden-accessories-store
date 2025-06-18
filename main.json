@@ -3,90 +3,116 @@
         "id": 1,
         "title": "pen making machine",
         "price": 56.20,
+        "mainprice":70,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
         "image": "./images/1.webp",
-        "status" : "New Arrivals"
+        "status": {
+            "stat1": "Discounts",
+            "stat2": "New Arrivals"
+        },
+        "stars" : 3
     },
     {
         "id": 2,
         "title": "Distinctive dining table",
         "price": 40.99,
+        "mainprice": 50,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
         "image": "./images/5.webp",
-        "status": "Best Seller"
+        "status": {
+            "stat1": "Best Seller",
+            "stat2": "New Arrivals",
+            "stat3": "Most View"
+        },
+        "stars": 2
     },
     {
         "id": 3,
         "title": "Comfortable sitting chair",
         "price": 69,
+        "mainprice": 80,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
         "image": "./images/12.webp",
-        "status": "New Arrivals"
+        "status": {
+            "stat1": "Most View",
+            "stat2": "New Arrivals"
+        },
+        "stars": 4
     },
     {
         "id": 4,
         "title": "An open drawer.",
         "price": 70,
+        "mainprice": 90,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
         "image": "./images/6.webp",
-        "status": "Discounts"
+        "status": {
+            "stat1": "Discounts",
+            "stat2": "New Arrivals",
+            "stat3": "Most View"
+        },
+        "stars": 4
     },
     {
         "id": 5,
         "title": "Big table for gathering",
         "price": 90.80,
+        "mainprice": 110,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
         "image": "./images/8.webp",
-        "status": "Best Seller"
+        "status": {
+            "stat1": "Best Seller",
+            "stat2": "New Arrivals",
+            "stat3": "Most View"
+        },
+        "stars": 4
     },
     {
         "id": 6,
         "title": "boiled egg holder",
         "price": 10.80,
+        "mainprice": 15,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
         "image": "./images/online2.webp",
-        "status": "Best Seller"
+        "status": {
+            "stat1": "Discounts",
+            "stat2": "New Arrivals"
+        },
+        "stars": 3
     },
     {
         "id": 7,
         "title": "sponge chair",
         "price": 63.80,
+        "mainprice": 70,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
         "image": "./images/online3.webp",
-        "status": "Best Seller"
+        "status": {
+            "stat1": "Discounts",
+            "stat2": "New Arrivals",
+            "stat3": "Most View"
+        },
+        "stars": 5
     },
     {
         "id": 8,
-        "title": "seed keeper",
-        "price": 90.80,
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
-        "category": "Product",
-        "image": "./images/3.webp",
-        "status": "Best Seller"
-    },
-    {
-        "id": 9,
-        "title": "wooden wheelchair",
-        "price": 90.80,
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
-        "category": "Product",
-        "image": "./images/4.jpg",
-        "status": "Best Seller"
-    },
-    {
-        "id": 10,
         "title": "wooden dressing table",
-        "price": 90.80,
+        "price": 100.80,
+        "mainprice": 150,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
         "image": "./images/online4.webp",
-        "status": "Best Seller"
+        "status": {
+            "stat1":"Best Seller",
+            "stat2":"New Arrivals"
+        },
+        "stars": 5
     }
 ]
