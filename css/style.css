@@ -100,13 +100,14 @@ html{
 }
 .slide-content {
     position: relative;
+    padding: 10px;
 }
 .slide-content .slide-header{
     position: absolute;
     width: 100%;
     top: 0;
     left: 0;
-    padding: 10px;
+    padding: 20px;
 }
 .slide-content .slide-header .new{
     background-color: var(--gold-color);

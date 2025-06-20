@@ -194,12 +194,6 @@ let hour = document.getElementById("hour")
 let min = document.getElementById("min")
 let second = document.getElementById("second")
 
-// Load from localStorage or set defaults
-days.textContent = localStorage.getItem("days");
-hour.textContent = localStorage.getItem("hour");
-min.textContent = localStorage.getItem("min");
-second.textContent = localStorage.getItem("second");
-
 let timeover = setInterval(() => {
     let s = Number(second.textContent);
     let m = Number(min.textContent);
@@ -256,65 +250,74 @@ let timeover = setInterval(() => {
     localStorage.setItem("days", d);
 }, 1000)
 
+// // Load from localStorage or set defaults
+// days.textContent = localStorage.getItem("days");
+// hour.textContent = localStorage.getItem("hour");
+// min.textContent = localStorage.getItem("min");
+// second.textContent = localStorage.getItem("second");
+
+let d = localStorage.getItem("days");
+let h = localStorage.getItem("hour");
+let m = localStorage.getItem("min");
+let s = localStorage.getItem("second");
+
+// Check if any value is null or undefined, and set default if so
+if (d === null || h === null || m === null || s === null) {
+    d = 10;
+    h = 23;
+    m = 59;
+    s = 59;
+} else {
+    d = Number(d);
+    h = Number(h);
+    m = Number(m);
+    s = Number(s);
+}
+
+// Update the DOM
+days.textContent = d;
+hour.textContent = h;
+min.textContent = m;
+second.textContent = s;
 
 // ===============================================================================================
 
 // functionalty of online products categories
 
-let categoriesSpan = document.querySelectorAll(".categories ul li span")
+// fetch the products form json file and make it out of block of code
+// this code i make to display all status in json file to manage it in categories buttons
 
-// function to remove all active class from all elements before any process
-function removeAllActive() {
-    let spanarray = [...categoriesSpan]
-    for (let i = 0; i < spanarray.length; i++) {
-        if (spanarray[i].classList.contains("active")) {
-            spanarray[i].classList.remove("active")
-        }
-    }
-}
-
-// go through all categoriesSpan and handel it 
-categoriesSpan.forEach((e) => {
-
-    // load from localstorage
-    let textFromlocalstorage = window.localStorage.getItem("activespan")
-    if (e.textContent == textFromlocalstorage) {
-        removeAllActive();
-        e.classList.add("active")
-    }
-
-    // add active to element when user press
-    e.addEventListener("click", () => {
-        removeAllActive();
-        e.classList.add("active")
-        window.localStorage.setItem("activespan", e.textContent)
-    })
-});
-
-
-// fetch the products from local storage
 let cardContainer = document.getElementById("cardContainer")
+let products;
 
+async function loadproducts() {
+    let respons = await fetch("main.json");
+    let onlineProducts = await respons.json();
+    products = onlineProducts;
 
-fetch("main.json").then((x) => {
-    let resultProducts = x.json();
-    return resultProducts;
-}).then((onlineProducts) => {
-    onlineProducts.length = 10;
-    console.log(onlineProducts[0])
+    // display the first 8 products 
+    onlineProducts.length = 8;
     onlineProducts.forEach((e) => {
+
         // create the box div 
         let box = document.createElement("div");
         box.className = "grid-item"
-        
+        if (e.status) {
+            let statusValues = Object.values(e.status);
+            statusValues.forEach((val) => {
+                let className = val.toLowerCase().replace(/\s+/g, '-'); // مثل: "New Arrivals" => "new-arrivals"
+                box.classList.add(className);
+            });
+        }
+
         // Get the rating value 
-        let rating =(e.stars || 0);
+        let rating = (e.stars || 0);
 
         // Generate stars
         let stars = "";
         for (let i = 1; i <= 5; i++) {
             if (i <= rating) {
-                stars += `<i class="fa-solid fa-star"></i>`; 
+                stars += `<i class="fa-solid fa-star"></i>`;
             } else {
                 stars += `<i class="fa-regular fa-star"></i>`;
             }
@@ -359,8 +362,85 @@ fetch("main.json").then((x) => {
                                         </div>
                                     </div>
                         </div>`
-        
+
         // append box to main card container 
         cardContainer.append(box)
     })
-})
+}
+
+// execute the loadproducts function first and then execute the categories button
+async function data() {
+    // merge the loadproducts function in data function
+    await loadproducts();
+
+    let cards = document.querySelectorAll(".grid-item")
+    let statusValues = [];
+    products.forEach((x) => {
+        if (x.status) {
+            let status = Object.values(x.status).map((val) =>
+                val.toLowerCase().replace(/\s+/g, '-')
+        );
+        statusValues.push(status)
+    }
+    });
+
+    // Flatten statusValues into one array (in case it's 2D), or adjust if 1D
+    let flattenedStatus = statusValues.flat();
+
+    let categoriesSpan = document.querySelectorAll(".categories ul li span")
+    // function to remove all active class from all elements before any process
+    function removeAllActive() {
+        let spanarray = [...categoriesSpan]
+        for (let i = 0; i < spanarray.length; i++) {
+            if (spanarray[i].classList.contains("active")) {
+                spanarray[i].classList.remove("active")
+            }
+        }
+    }
+
+    // go through all categoriesSpan and handel it 
+    categoriesSpan.forEach((e) => {
+        let buttonId = e.textContent.toLowerCase().replace(/\s+/g, "-");
+        // load from localstorage
+        let textFromlocalstorage = window.localStorage.getItem("activespan")
+        if (e.textContent.toLowerCase().replace(/\s+/g, "-") == textFromlocalstorage) {
+            removeAllActive();
+            e.classList.add("active")
+        }
+
+        // add active to element when user press
+        e.addEventListener("click", () => {
+            removeAllActive();
+            e.classList.add("active")
+            window.localStorage.setItem("activespan", buttonId)
+
+            // the button textcontent it will be id
+            
+
+            if (flattenedStatus.includes(buttonId)) {
+                cards.forEach((card) => {
+                    if (card.classList.contains(buttonId)) {
+                        console.log(card);
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        })
+
+        if (flattenedStatus.includes(textFromlocalstorage)) {
+            cards.forEach((card) => {
+                if (card.classList.contains(textFromlocalstorage)) {
+                    console.log(card);
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    });
+}
+
+// execute the functoin loadproducts to display all products in page and execute the categories buttons
+data()
