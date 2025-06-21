@@ -1,11 +1,12 @@
 // functionalty of scroller
 
 let element = document.querySelector(".scroller")
-let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+// let height = document.documentElement.scrollHeight
 
 window.addEventListener("scroll", () => {
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
     let scrolltop = document.documentElement.scrollTop
-    element.style.height = `${(scrolltop / height) * 100}%`
+    element.style.width = `${(((scrolltop / height) * 100) )}%`
 })
 // ===============================================================================================
 
@@ -19,7 +20,23 @@ let currentYear = date.getFullYear()
 span.forEach((e) => {
     e.textContent = currentYear;
 })
+// ===============================================================================================
 
+// functionalty of to top button
+
+let button = document.querySelector(".to-top-button");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY >= 100) {
+        button.style.opacity = 1;
+    } else {
+        button.style.opacity = 0;
+    }
+});
+
+button.addEventListener("click", () => {
+    document.querySelector(".home").scrollIntoView({ behavior: "smooth" });
+});
 // ===============================================================================================
 
 // functionalty of bar Content
@@ -157,8 +174,8 @@ var swiper = new Swiper(".mySwiperTwo", {
 let swiperSlides = document.querySelectorAll(".swiper-slide .slide-content .image img")
 let slideprice = document.querySelectorAll(".swiper-slide .slide-content .slide-header .price")
 let slidetilte = document.querySelectorAll(".swiper-slide .slide-content .slide-footer .title .name")
-// fetch the json file to website
 
+// fetch the json file to website
 fetch("main.json").then((x) => {
     let y = x.json()
     return y;
@@ -250,11 +267,7 @@ let timeover = setInterval(() => {
     localStorage.setItem("days", d);
 }, 1000)
 
-// // Load from localStorage or set defaults
-// days.textContent = localStorage.getItem("days");
-// hour.textContent = localStorage.getItem("hour");
-// min.textContent = localStorage.getItem("min");
-// second.textContent = localStorage.getItem("second");
+// Load from localStorage or set defaults
 
 let d = localStorage.getItem("days");
 let h = localStorage.getItem("hour");
@@ -305,7 +318,7 @@ async function loadproducts() {
         if (e.status) {
             let statusValues = Object.values(e.status);
             statusValues.forEach((val) => {
-                let className = val.toLowerCase().replace(/\s+/g, '-'); // مثل: "New Arrivals" => "new-arrivals"
+                let className = val.toLowerCase().replace(/\s+/g, '-'); // "New Arrivals" => "new-arrivals"
                 box.classList.add(className);
             });
         }
@@ -384,7 +397,7 @@ async function data() {
     }
     });
 
-    // Flatten statusValues into one array (in case it's 2D), or adjust if 1D
+    // Flatten statusValues into one array
     let flattenedStatus = statusValues.flat();
 
     let categoriesSpan = document.querySelectorAll(".categories ul li span")
@@ -400,7 +413,10 @@ async function data() {
 
     // go through all categoriesSpan and handel it 
     categoriesSpan.forEach((e) => {
+
+        // the button textcontent it will be id
         let buttonId = e.textContent.toLowerCase().replace(/\s+/g, "-");
+
         // load from localstorage
         let textFromlocalstorage = window.localStorage.getItem("activespan")
         if (e.textContent.toLowerCase().replace(/\s+/g, "-") == textFromlocalstorage) {
@@ -414,13 +430,9 @@ async function data() {
             e.classList.add("active")
             window.localStorage.setItem("activespan", buttonId)
 
-            // the button textcontent it will be id
-            
-
             if (flattenedStatus.includes(buttonId)) {
                 cards.forEach((card) => {
                     if (card.classList.contains(buttonId)) {
-                        console.log(card);
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
@@ -429,10 +441,10 @@ async function data() {
             }
         })
 
+        // load from localstorage
         if (flattenedStatus.includes(textFromlocalstorage)) {
             cards.forEach((card) => {
                 if (card.classList.contains(textFromlocalstorage)) {
-                    console.log(card);
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
@@ -443,4 +455,9 @@ async function data() {
 }
 
 // execute the functoin loadproducts to display all products in page and execute the categories buttons
+// execute all the the code in top loadproducts first and button code finnaly
 data()
+
+// ===============================================================================================
+
+// functionalty of 

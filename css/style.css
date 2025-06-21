@@ -31,9 +31,9 @@ html{
 .scroller{
     position: fixed;
     top: 0;
-    right: 0;
-    width: 5px;
-    height: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
     background-color: var(--gold-color);
     z-index: 10000;
     border-radius: 10px;
@@ -933,3 +933,160 @@ header .nav .logo img{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.163);
 }
 /* end purchase  */
+/* start contact-us */
+.contact-us {
+    background-color: #eeeeee;
+    padding-block: 40px;
+}
+.contact-us .container .contact-content {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.contact-us .container .contact-content div{
+    flex-grow: 1;
+    padding: 10px;
+    background-color: var(--header-background-color);
+    border-radius:10px ;
+    color: var(--text-color);
+}
+.contact-us .container .contact-content div h3{
+    position: relative;
+    font-size: 21px;
+    font-weight: 500;
+    padding-block: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.contact-us .container .contact-content div h3::before{
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 3px;
+    background-color: var(--dark-gold-color);
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+}
+.contact-us .container .contact-content .address span:first-child{
+    font-size: 17px;
+    font-weight: 500;
+}
+.contact-us .container .contact-content .address span:last-child{
+    font-size: 13px;
+    color: #777;
+}
+.contact-us .container .contact-content ul li a{
+    color: var(--text-color);
+    transition: var(--transition);
+}
+.contact-us .container .contact-content ul li{
+    position: relative;
+    padding: 10px 0 10px 20px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: var(--transition);
+}
+.contact-us .container .contact-content ul li::before{
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--text-color);
+    border: 3px solid white;
+    outline: 2px solid var(--text-color);
+    transition: var(--transition);
+}
+.contact-us .container .contact-content ul li:hover , 
+.contact-us .container .contact-content ul li:hover a{
+    color: var(--gold-color);
+}
+.contact-us .container .contact-content ul li:hover::before{
+    background-color: var(--gold-color);
+    outline-color:var(--gold-color);
+    transform: scale(1.2) translateY(-50%);
+}
+.contact-us .container .contact-content .email form input:first-child {
+    outline: none;
+    display: block;
+    width: 100%;
+    height: 40px;
+    text-indent: 10px;
+    text-transform: lowercase;
+    border: 1px solid var(--gold-background-color);
+    color: var(--gold-color);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+.contact-us .container .contact-content .email form input::placeholder{
+    color: var(--gold-color);
+}
+.contact-us .container .contact-content .email form input:focus {
+    border-color: var(--gold-color);
+    box-shadow: 0 0 5px 0px var(--gold-color);
+}
+.contact-us .container .contact-content .email form input:last-child{
+    outline: none;
+    border: 1px solid var(--gold-color);
+    color: var(--gold-color);
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius:5px ;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.contact-us .container .contact-content .email form input:last-child:hover{
+    background-color: var(--gold-color);
+    color: white;
+}
+/* end contact-us */
+/* start copyright */
+.copyright{
+    height: 50px;
+    background-color: var(--main-background-color);
+}
+.copyright p{
+    font-size: 14px;
+}
+.copyright p span:first-child{
+    color: var(--gold-color);
+}
+.copyright img{
+    margin-right: 10px;
+    border-radius: 5px;
+}
+/* end copyright */
+/* start to-top-button */
+.to-top-button{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 25px;
+    background-color: var(--gold-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    transition: var(--transition);
+}
+.to-top-button i{
+    transition: var(--transition)
+}
+.to-top-button i:hover{
+    animation: totop 1s linear infinite alternate;
+}
+@keyframes totop {
+    0% , 20% , 30% , 50% ,60% , 90% , 100%{
+        transform: translateY(0);
+    }
+    40% , 70%{
+        transform: translateY(5px);
+    }
+}
+/* end to-top-button */
