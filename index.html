@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Roots</title>
 </head>
-<body>
+<body class="p-relative">
     <!-- start scroller element -->
     <div class="scroller"></div>
     <!-- end scroller element -->
@@ -163,7 +163,7 @@
                 <div class="swiper">
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide f-center">
+                            <div class="swiper-slide f-center parent">
                                 <div class="slide-content">
                                     <div class="slide-header d-flex j-between align-center">
                                         <span class="d-block new">New</span>
@@ -197,14 +197,14 @@
                                             </div>
                                             <div class="add-cart">
                                                 <a href="#" title="addcart">
-                                                    <i class="fa-solid fa-cart-plus"></i>
+                                                    <i class="fa-solid fa-cart-plus AddToCart"></i>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide f-center">
+                            <div class="swiper-slide f-center parent">
                                 <div class="slide-content">
                                     <div class="slide-header d-flex j-between align-center">
                                         <span class="d-block new">New</span>
@@ -238,14 +238,14 @@
                                             </div>
                                             <div class="add-cart">
                                                 <a href="#" title="addcart">
-                                                    <i class="fa-solid fa-cart-plus"></i>
+                                                    <i class="fa-solid fa-cart-plus AddToCart" ></i>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide f-center">
+                            <div class="swiper-slide f-center parent">
                                 <div class="slide-content">
                                     <div class="slide-header d-flex j-between align-center">
                                         <span class="d-block new">New</span>
@@ -279,14 +279,14 @@
                                             </div>
                                             <div class="add-cart">
                                                 <a href="#" title="addcart">
-                                                    <i class="fa-solid fa-cart-plus"></i>
+                                                    <i class="fa-solid fa-cart-plus AddToCart" ></i>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide f-center">
+                            <div class="swiper-slide f-center parent">
                                 <div class="slide-content">
                                     <div class="slide-header d-flex j-between align-center">
                                         <span class="d-block new">New</span>
@@ -320,14 +320,14 @@
                                             </div>
                                             <div class="add-cart">
                                                 <a href="#" title="addcart">
-                                                    <i class="fa-solid fa-cart-plus"></i>
+                                                    <i class="fa-solid fa-cart-plus AddToCart"></i>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide f-center">
+                            <div class="swiper-slide f-center parent">
                                 <div class="slide-content">
                                     <div class="slide-header d-flex j-between align-center">
                                         <span class="d-block new">New</span>
@@ -361,7 +361,7 @@
                                             </div>
                                             <div class="add-cart">
                                                 <a href="#" title="addcart">
-                                                    <i class="fa-solid fa-cart-plus"></i>
+                                                    <i class="fa-solid fa-cart-plus AddToCart"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -594,6 +594,50 @@
         <i class="fa-solid fa-plane-up"></i>
     </div>
     <!-- end footer -->
+    <!-- start floating overview box-->
+    <div class="floating-box">
+        <div class="floating-content">
+            <div class="floating-box d-flex">
+                <div class="image">
+                    <img src="images/online3.webp" alt="Product">
+                </div>
+                <div class="box-desc p-relative">
+                    <button type="button" id="cancel" title="cancel" class="p-absolute">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="desc-content">
+                        <div class="title">
+                            <h3 id="title">hello</h3>
+                        </div>
+                        <div class="price">
+                            <span id="discountPrice">$ 10</span>
+                            <span id="oldPrice"><del>$ 20</del></span>
+                        </div>
+                        <div class="all-products">
+                            <a href="#">See all features</a>
+                        </div>
+                        <div class="amount">
+                            <input type="number" name="amount" min="1" max="20" step="1" value="1" id="amount" title="amount">
+                            <button type="button" title="addtocart">Add to cart</button>
+                        </div>
+                        <div class="description">
+                            <p id="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, culp Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, eligendi!</p>
+                        </div>
+                        <div class="sharing">
+                            <h4>Share this product</h4>
+                            <div class="social-media d-flex">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <i class="fa-brands fa-x-twitter"></i>
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end floating overview box-->
     <!-- js files -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="main.js"></script>

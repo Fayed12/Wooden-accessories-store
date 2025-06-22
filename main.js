@@ -314,7 +314,12 @@ async function loadproducts() {
 
         // create the box div 
         let box = document.createElement("div");
-        box.className = "grid-item"
+        box.className = "grid-item parent"
+
+        // set the id to the all card box
+        box.setAttribute("id-data" , e.id)
+
+        // set the status as class name
         if (e.status) {
             let statusValues = Object.values(e.status);
             statusValues.forEach((val) => {
@@ -358,18 +363,18 @@ async function loadproducts() {
                                         <div class="services d-flex">
                                             <div class="wishlist">
                                                 <a href="#" title="wishlist">
-                                                    <i class="fa-regular fa-heart"></i>
+                                                    <i class="fa-regular fa-heart faviocn" ></i>
                                                 </a>
                                             </div>
                                             <div class="view">
-                                                <i class="fa-solid fa-magnifying-glass-plus" title="overview"></i>
+                                                <i class="fa-solid fa-magnifying-glass-plus" id="overview" title="overview"></i>
                                             </div>
                                             <div class="compare">
                                                 <i class="fa-solid fa-rotate" title="compare"></i>
                                             </div>
                                             <div class="add-cart">
                                                 <a href="#" title="addcart">
-                                                    <i class="fa-solid fa-cart-plus"></i>
+                                                    <i class="fa-solid fa-cart-plus AddToCart"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -454,10 +459,153 @@ async function data() {
     });
 }
 
-// execute the functoin loadproducts to display all products in page and execute the categories buttons
-// execute all the the code in top loadproducts first and button code finnaly
-data()
+
+// data()
 
 // ===============================================================================================
 
-// functionalty of 
+// functionalty of cart section
+
+// wait data function to execute and then run function of cart
+async function cart() {
+    await data()
+
+    // add to cart icon 
+    let addToCartIcon = document.querySelectorAll(".AddToCart");
+    let NumberOfPieces = document.getElementById("NumberOfPieces");
+
+    addToCartIcon.forEach((e) => {
+        let clickCount = 0;
+
+        e.addEventListener("click", function (event) {
+            event.preventDefault();
+            clickCount++;
+
+            // the parent of Purchase and parent id
+
+            let parentbox = e.closest(".parent");
+            let parentId = +parentbox.getAttribute("id-data");
+
+            if (clickCount === 1) {
+                this.style.color = "#c87065"; // First click: change color
+                let number = +NumberOfPieces.textContent;
+                NumberOfPieces.textContent = number + 1;
+
+                // set the id to local storage
+                window.localStorage.setItem(`item${parentId}` , parentId)
+                
+            } else if (clickCount === 2) {
+                if (confirm("are you sure to delete")) {
+                    this.style.color = "#666666"; 
+                    let number = +NumberOfPieces.textContent;
+                    NumberOfPieces.textContent = number - 1;
+
+                    // reset the clickCount ; 
+                    clickCount = 0;
+
+                    // delete from localstorage
+                    localStorage.removeItem(`item${parentId}`);
+                }
+            }
+        });
+    })
+
+    // faviocn functionalty
+    let faviocns = document.querySelectorAll(".faviocn")
+
+    faviocns.forEach((e) => {
+        let clickCount = 0;
+
+        let parentbox = e.closest(".parent");
+        let parentId = +parentbox.getAttribute("id-data")
+
+        e.addEventListener("click", (event) => {
+            clickCount++;
+            event.preventDefault();
+
+            if (clickCount === 1) {
+                e.classList.add("fa-solid")
+                e.classList.add("color")
+
+                // set localstorage
+                window.localStorage.setItem(`favItem${parentId}`, parentId)
+
+            } else if (clickCount === 2) {
+                if (confirm("are you sure to delete from favorite")) {
+                    e.classList.remove("fa-solid")
+                    e.classList.remove("color")
+
+                    // reset the counter
+                    clickCount = 0;
+
+                    // delete from localstorage
+                    // set localstorage
+                    window.localStorage.removeItem(`favItem${parentId}`)
+                }
+            }
+            
+        })
+    })
+}
+
+async function loadCartFromLocalStorage() {
+
+    // first execute the functoin loadproducts from data function to display all products in page and execute the categories buttons
+    // execute all the the code in top loadproducts first and button code finnaly
+    await cart();
+
+    // the localstorage content
+
+    let addToCartIcon = document.querySelectorAll(".AddToCart");
+    let faviocns = document.querySelectorAll(".faviocn")
+    let NumberOfPieces = document.getElementById("NumberOfPieces");
+
+    let count = 0;
+
+    // add to cart icon localstorage
+    addToCartIcon.forEach((icon) => {
+        let parentbox = icon.closest(".parent");
+        let parentId = +parentbox.getAttribute("id-data");
+
+        // Check if item exists in localStorage
+
+        if (localStorage.getItem(`item${parentId}`)) {
+            // Style the icon
+            icon.classList.toggle("color");
+            count++;
+        }
+    });
+    
+    // Set total number of items
+    NumberOfPieces.textContent = count;
+
+    // favicon localstorage
+    faviocns.forEach((e) => {
+        let parentbox = e.closest(".parent");
+        let parentId = +parentbox.getAttribute("id-data");
+
+        // On page load: style icons that are already favorites
+        if (localStorage.getItem(`favItem${parentId}`)) {
+            e.classList.add("fa-solid");
+            e.classList.add("color");
+        }
+    });
+
+    // functionalty of overview button
+
+    let overview = document.querySelectorAll("#overview");
+    let floatingbox = document.querySelector(".floating-box");
+
+    overview.forEach((e) => {
+        e.addEventListener("click", () => {
+            e.style.color = "#c87065"
+            floatingbox.style.opacity = "1";
+            floatingbox.style.zIndex = "2000";
+            floatingbox.style.height = "100%";
+        })
+    })
+    
+}
+
+// execute the all function we make it await and then execute the load from localstorage 
+loadCartFromLocalStorage();

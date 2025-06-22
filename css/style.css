@@ -10,6 +10,8 @@ body{
     font-family: "NormalWinkySans";
     padding-right: 5px;
     text-transform: capitalize;
+    position: relative;
+    width: 100%;
 }
 :root{
     --main-background-color:#f6f6f6;
@@ -91,6 +93,11 @@ html{
     border-radius: 10px;
 }
 /* end main-header */
+/* start favicon color */
+.color {
+    color: #c87065 !important;
+}
+/* end favicon color */
 /* start slide formate to product and online product */
 .slide-content img {
     display: block;
@@ -188,7 +195,7 @@ header{
     position: fixed;
     background-color: var(--header-background-color);
     box-shadow: 0 0 5px 0px rgb(170, 169, 169);
-    z-index: 1000;
+    z-index: 2000;
 }
 header .nav .bar{
     overflow: hidden;
@@ -1090,3 +1097,142 @@ header .nav .logo img{
     }
 }
 /* end to-top-button */
+/* start floating-box */
+.floating-box{
+    position: fixed;
+    left: 50%;
+    top: 150px;
+    transform: translateX(-50%);
+    width: 70%;
+    background: #fff;
+    opacity: 0;
+    z-index: -10;
+    transition: opacity 0.3s;
+}
+.floating-box .floating-box {
+    padding: 20px;
+    border-radius: 10px;
+    gap: 30px;
+    color: var(--text-color);
+}
+.floating-box .floating-box .image{
+    flex-basis: calc(40% - 15px);
+    min-height: 100%;
+}
+.floating-box .floating-box .image img{
+    border-radius: 3px;
+}
+.floating-box .floating-box .box-desc{
+    flex-basis: calc(60% - 15px);
+    min-height: 100%;
+}
+.floating-box .floating-box .box-desc #cancel{
+    right: 0;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 17px;
+    border: 1px solid var(--dark-gold-color);
+    color: var(--dark-gold-color);
+    transition: var(--transition);
+}
+.floating-box .floating-box .box-desc #cancel:hover{
+    background-color: var(--dark-gold-color);
+    color: white;
+}
+.floating-box .floating-box .box-desc .desc-content{
+    margin-top: 30px;
+}
+.floating-box .floating-box .box-desc .title {
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d7d5d5;
+    font-size: 20px;
+    font-weight: normal;
+    color: initial;
+}
+.floating-box .floating-box .box-desc .price{
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d7d5d5;
+    font-size: 22px;
+    font-weight: 500;
+}
+.floating-box .floating-box .box-desc .price span:last-child{
+    color: var(--dark-gold-color);
+    font-size: 15px;
+}
+.floating-box .floating-box .box-desc .all-products  {
+    margin-bottom: 30px;
+}
+.floating-box .floating-box .box-desc .all-products a{
+    text-decoration: underline;
+    color: var(--text-color);
+    font-size: 11px;
+    transition: var(--transition);
+}
+.floating-box .floating-box .box-desc .all-products a:hover{
+    color: var(--gold-color);
+}
+.floating-box .floating-box .box-desc .amount {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d7d5d5;
+}
+.floating-box .floating-box .box-desc .amount input{
+    width: 60px;
+    height: 40px;
+    text-indent: 5px;
+    outline: none;
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+}
+.floating-box .floating-box .box-desc .amount button{
+    height: 40px;
+    width: 200px;
+    font-size: 17px;
+    outline: none;
+    background-color: var(--text-color);
+    color: white;
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+.floating-box .floating-box .box-desc .amount button:hover{
+    background-color: var(--gold-color);
+    border-color: var(--gold-color);
+    color: white;
+}
+.floating-box .floating-box .box-desc .description{
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.floating-box .floating-box .box-desc .sharing h4{
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+.floating-box .floating-box .box-desc .sharing .social-media {
+    width: 100%;
+    gap: 20px;
+}
+.floating-box .floating-box .box-desc .sharing .social-media i {
+    width:30px;
+    height: 30px;
+    border: 1px solid var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: var(--transition);
+}
+.floating-box .floating-box .box-desc .sharing .social-media i:hover{
+    color: white;
+    background-color: var(--gold-color);
+    border-color: var(--gold-color);
+    cursor: pointer;
+}
+/* end floating-box */
