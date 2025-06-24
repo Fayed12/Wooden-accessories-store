@@ -63,4 +63,7 @@ a{
 .align-center{
     align-items: center;
 }
+.g-20{
+    gap: 20px;
+}
 /* end flex formates */

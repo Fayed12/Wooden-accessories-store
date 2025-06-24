@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--all min css file  -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- normalize file -->
+    <link rel="stylesheet" href="../css/Normalize.css">
+    <!-- local formates file-->
+    <link rel="stylesheet" href="../css/local-formate.css">
+    <!-- web icon logo -->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- main css file -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- cart css file -->
+    <link rel="stylesheet" href="../css/cart.css">
+    <title>cart</title>
+</head>
+<body class="p-relative">
+    <!-- overlay -->
+    <div class="overlay-layer p-absolute"></div>
+    <!-- start scroller element -->
+    <div class="scroller"></div>
+    <!-- end scroller element -->
+    <!-- start header -->
+    <header class="w-full">
+        <div class="container h-full">
+            <div class="nav d-flex j-between align-center h-full">
+                <div class="bar p-relative h-full f-center">
+                    <div class="bar-content" id="barContent">
+                        <span class="d-block" id="spanOne"></span>
+                        <span class="d-block" id="spanTwo"></span>
+                        <span class="d-block" id="spanThree"></span>
+                    </div>
+                    <div class="menu" id="menu">
+                        <ul>
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="index.html">Products</a></li>
+                            <li><a href="index.html">Accesories</a></li>
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="index.html">About us</a></li>
+                            <li><a href="index.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="logo">
+                    <img src="../images/logopage.jpg" alt="pagelogo" >
+                </div>
+                <div class="cart-icon p-relative" id="cartIicon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="NumberOfPieces" class="f-center">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end header -->
+    <!-- start cart home -->
+    <div class="cart-home p-relative">
+        <div class="image p-absolute">
+            <img src="../images/shopping.webp" alt="">
+        </div>
+        <div class="container h-full">
+                <div class="home-content h-full">
+                    <h3>check out</h3>
+                    <div class="page">
+                        <span>Home / check out</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- end cart home -->
+    <!-- start cart commponants -->
+    <div class="cart-body">
+        <div class="container">
+            <div class="title-of-pages">
+                <ul class="d-flex f-center">
+                    <li class="f-center active" id="shoppingcart">shopping cart</li>
+                    <li class="f-center" id="wishlist">wishlist</li>
+                </ul>
+            </div>
+            <div class="table">
+                <div class="table-content">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end cart commponants -->
+    <!-- start footer -->
+    <footer>
+        <div class="contact-us">
+            <div class="container">
+                <div class="main-header f-center">
+                    <h3>contact us</h3>
+                </div>
+                <div class="contact-content d-flex">
+                    <div class="address d-flex f-d-column">
+                        <h3>Contact Us</h3>
+                        <div class="add">
+                            <span>address : </span>
+                            <span>28 Elmoez, cairo City, Egypt</span>
+                        </div>
+                        <div class="cell">
+                            <span>Cell-Phone : </span>
+                            <span>012345 - 123456789</span>
+                        </div>
+                        <div class="email">
+                            <span>Email : </span>
+                            <span>roots12@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="accounts d-flex f-d-column">
+                        <h3>accounts</h3>
+                        <ul>
+                            <li>
+                                <a href="#">My account</a>
+                            </li>
+                            <li>
+                                <a href="#">My Wishlistt</a>
+                            </li>
+                            <li>
+                                <a href="#">My cart</a>
+                            </li>
+                            <li>
+                                <a href="#">Sign In</a>
+                            </li>
+                            <li>
+                                <a href="#">Check out</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="shipping d-flex f-d-column">
+                        <h3>shipping</h3>
+                        <ul>
+                            <li>New Products</li>
+                            <li>Top Sellers</li>
+                            <li>Manufactirers</li>
+                            <li>Suppliers</li>
+                            <li>Specials</li>
+                        </ul>
+                    </div>
+                    <div class="email d-flex f-d-column">
+                        <h3>Email Newsletters</h3>
+                        <div class="input w-full">
+                            <form class="w-full">
+                                <input title="email" type="email" name="email" id="email" placeholder="Email Address..." required>
+                                <input type="submit" name="submit" value="submit" title="submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright d-flex align-center">
+            <div class="container j-between f-center">
+                <p>© <span>mohamed fayed</span> <span id="yeardate"></span>. All Rights Reserved.</p>
+                <div class="sponsors d-flex">
+                    <img src="../images/Payment1.jpg" alt="Payment" width="50px">
+                    <img src="../images/Payment2.jpg" alt="Payment" width="50px">
+                    <img src="../images/Payment3.jpg" alt="Payment" width="50px">
+                    <img src="../images/Payment4.jpg" alt="Payment" width="50px">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="to-top-button f-center">
+        <i class="fa-solid fa-plane-up"></i>
+    </div>
+    <!-- end footer -->
+    <!-- js files -->
+    <script src="../cart.js"></script>
+</body>
+</html>

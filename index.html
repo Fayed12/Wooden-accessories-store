@@ -10,8 +10,6 @@
     <!-- local formates file-->
     <link rel="stylesheet" href="css/local-formate.css">
     <!-- web icon logo -->
-    <link rel="stylesheet" href="">
-    <!-- font style -->
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <!-- swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -20,6 +18,8 @@
     <title>Roots</title>
 </head>
 <body class="p-relative">
+    <!-- overlay -->
+    <div class="overlay-layer p-absolute"></div>
     <!-- start scroller element -->
     <div class="scroller"></div>
     <!-- end scroller element -->
@@ -37,9 +37,7 @@
                             <li><a href="index.html">Home</a></li>
                             <li><a href="index.html">Products</a></li>
                             <li><a href="index.html">Accesories</a></li>
-                            <li><a href="index.html">Lookbook</a></li>
-                            <li><a href="index.html">Blog</a></li>
-                            <li><a href="index.html">Pages</a></li>
+                            <li><a href="html/cart.html">Cart</a></li>
                             <li><a href="index.html">About us</a></li>
                             <li><a href="index.html">Contact</a></li>
                         </ul>
@@ -183,7 +181,7 @@
                                                 <i class="fa-regular fa-star"></i>
                                             </div>
                                         </div>
-                                        <div class="services d-flex">
+                                        <!-- <div class="services d-flex">
                                             <div class="wishlist">
                                                 <a href="#" title="wishlist">
                                                     <i class="fa-regular fa-heart"></i>
@@ -200,7 +198,7 @@
                                                     <i class="fa-solid fa-cart-plus AddToCart"></i>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +222,7 @@
                                                 <i class="fa-regular fa-star"></i>
                                             </div>
                                         </div>
-                                        <div class="services d-flex">
+                                        <!-- <div class="services d-flex">
                                             <div class="wishlist">
                                                 <a href="#" title="wishlist">
                                                     <i class="fa-regular fa-heart"></i>
@@ -241,7 +239,7 @@
                                                     <i class="fa-solid fa-cart-plus AddToCart" ></i>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +263,7 @@
                                                 <i class="fa-regular fa-star"></i>
                                             </div>
                                         </div>
-                                        <div class="services d-flex">
+                                        <!-- <div class="services d-flex">
                                             <div class="wishlist">
                                                 <a href="#" title="wishlist">
                                                     <i class="fa-regular fa-heart"></i>
@@ -282,7 +280,7 @@
                                                     <i class="fa-solid fa-cart-plus AddToCart" ></i>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -306,7 +304,7 @@
                                                 <i class="fa-regular fa-star"></i>
                                             </div>
                                         </div>
-                                        <div class="services d-flex">
+                                        <!-- <div class="services d-flex">
                                             <div class="wishlist">
                                                 <a href="#" title="wishlist">
                                                     <i class="fa-regular fa-heart"></i>
@@ -323,7 +321,7 @@
                                                     <i class="fa-solid fa-cart-plus AddToCart"></i>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -347,7 +345,7 @@
                                                 <i class="fa-regular fa-star"></i>
                                             </div>
                                         </div>
-                                        <div class="services d-flex">
+                                        <!-- <div class="services d-flex">
                                             <div class="wishlist">
                                                 <a href="#" title="wishlist">
                                                     <i class="fa-regular fa-heart"></i>
@@ -364,7 +362,7 @@
                                                     <i class="fa-solid fa-cart-plus AddToCart"></i>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -582,10 +580,10 @@
             <div class="container j-between f-center">
                 <p>© <span>mohamed fayed</span> <span id="yeardate"></span>. All Rights Reserved.</p>
                 <div class="sponsors d-flex">
-                    <img src="images/Payment1.jpg" alt="Payment" width="50px">
-                    <img src="images/Payment2.jpg" alt="Payment" width="50px">
-                    <img src="images/Payment3.jpg" alt="Payment" width="50px">
-                    <img src="images/Payment4.jpg" alt="Payment" width="50px">
+                    <img src="images/Payment1.jpg" alt="Payment">
+                    <img src="images/Payment2.jpg" alt="Payment">
+                    <img src="images/Payment3.jpg" alt="Payment">
+                    <img src="images/Payment4.jpg" alt="Payment">
                 </div>
             </div>
         </div>
@@ -597,9 +595,9 @@
     <!-- start floating overview box-->
     <div class="floating-box">
         <div class="floating-content">
-            <div class="floating-box d-flex">
-                <div class="image">
-                    <img src="images/online3.webp" alt="Product">
+            <div class="floating-box-content d-flex">
+                <div class="image" >
+                    <img id="overviewImage" src="" alt="Product">
                 </div>
                 <div class="box-desc p-relative">
                     <button type="button" id="cancel" title="cancel" class="p-absolute">
@@ -607,21 +605,21 @@
                     </button>
                     <div class="desc-content">
                         <div class="title">
-                            <h3 id="title">hello</h3>
+                            <h3 id="overviewtitle"></h3>
                         </div>
                         <div class="price">
-                            <span id="discountPrice">$ 10</span>
-                            <span id="oldPrice"><del>$ 20</del></span>
+                            <span id="overviewdiscountPrice"></span>
+                            <span ><del id="overviewoldPrice">/del></span>
                         </div>
                         <div class="all-products">
                             <a href="#">See all features</a>
                         </div>
                         <div class="amount">
                             <input type="number" name="amount" min="1" max="20" step="1" value="1" id="amount" title="amount">
-                            <button type="button" title="addtocart">Add to cart</button>
+                            <button type="button" title="addtocart" id="overviewAddCart">Add to cart</button>
                         </div>
                         <div class="description">
-                            <p id="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, culp Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, eligendi!</p>
+                            <p id="overviewdesc"></p>
                         </div>
                         <div class="sharing">
                             <h4>Share this product</h4>

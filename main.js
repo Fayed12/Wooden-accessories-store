@@ -1,7 +1,6 @@
 // functionalty of scroller
 
 let element = document.querySelector(".scroller")
-// let height = document.documentElement.scrollHeight
 
 window.addEventListener("scroll", () => {
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
@@ -46,22 +45,25 @@ let spanOne = document.getElementById("spanOne")
 let spanTwo = document.getElementById("spanTwo")
 let spanThree = document.getElementById("spanThree")
 let menu = document.getElementById("menu");
+let overlaylayer = document.querySelector(".overlay-layer")
 
 barContent.addEventListener("click", () => {
     spanOne.classList.toggle("left");
     spanTwo.classList.toggle("hide");
     spanThree.classList.toggle("right");
-    menu.classList.toggle("display")
+    menu.classList.toggle("display");
+    overlaylayer.classList.toggle("overlay");
 })
 
 document.addEventListener("click", (e) => {
     if (menu.classList.contains("display")) {
         // Check if click is outside the navbar and button
         if (!barContent.contains(e.target) && (!menu.contains(e.target))) {
-            menu.classList.toggle("display")
+            menu.classList.toggle("display");
             spanOne.classList.toggle("left");
             spanTwo.classList.toggle("hide");
             spanThree.classList.toggle("right");
+            overlaylayer.classList.remove("overlay")
         }
     };
 })
@@ -74,9 +76,18 @@ window.onscroll = (e) => {
             spanOne.classList.toggle("left");
             spanTwo.classList.toggle("hide");
             spanThree.classList.toggle("right");
+            overlaylayer.classList.remove("overlay")
         }
     };
 }
+// ===============================================================================================
+
+// functionalty of cartIicon
+let cartIicon = document.getElementById("cartIicon");
+
+cartIicon.addEventListener("click", () => {
+    window.location.href = "./html/cart.html";
+})
 // ===============================================================================================
 
 // functionalty of silder Content
@@ -196,9 +207,33 @@ fetch("main.json").then((x) => {
     })
 
     // add price to product slide
+    let title = [];
     slidetilte.forEach((element, i) => {
         element.textContent = slidearray[i].title;
+        title.push(element.textContent.toLowerCase());
     })
+    
+    document.querySelectorAll(".parent").forEach((e, index) => {
+        const titleInParent = e.querySelector(".name");
+        let rate = e.querySelectorAll(".rate");
+        if (titleInParent && titleInParent.textContent.toLowerCase() === slidearray[index].title.toLowerCase()) {
+            // Get the rating value 
+            let rating = (slidearray[index].stars || 0);
+
+            // Generate stars
+            let stars = "";
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    stars += `<i class="fa-solid fa-star"></i>`;
+                } else {
+                    stars += `<i class="fa-regular fa-star"></i>`;
+                }
+            }
+            rate.forEach((e) => {
+                e.innerHTML = stars;
+            })
+        }
+    });
 })
 
 
@@ -489,10 +524,26 @@ async function cart() {
             if (clickCount === 1) {
                 this.style.color = "#c87065"; // First click: change color
                 let number = +NumberOfPieces.textContent;
-                NumberOfPieces.textContent = number + 1;
+                // NumberOfPieces.textContent = number + 1;
+
+                if (localStorage.getItem(`item${parentId}`)) {
+                    // Style the icon
+                    NumberOfPieces.textContent;
+                    // clickCount ++;
+                } else {
+                    NumberOfPieces.textContent = number + 1;
+
+                }
 
                 // set the id to local storage
-                window.localStorage.setItem(`item${parentId}` , parentId)
+                window.localStorage.setItem(`item${parentId}`, parentId)
+                
+                // set default amount to local storage
+                if (window.localStorage.getItem(`amountOfProduct${parentId}`)) {
+                    return true;
+                } else {
+                    window.localStorage.setItem(`amountOfProduct${parentId}`, 1)
+                }
                 
             } else if (clickCount === 2) {
                 if (confirm("are you sure to delete")) {
@@ -505,6 +556,12 @@ async function cart() {
 
                     // delete from localstorage
                     localStorage.removeItem(`item${parentId}`);
+
+                    // remove amount from localstorage
+
+                    window.localStorage.removeItem(`amountOfProduct${parentId}`)
+                } else {
+                    clickCount
                 }
             }
         });
@@ -595,16 +652,101 @@ async function loadCartFromLocalStorage() {
 
     let overview = document.querySelectorAll("#overview");
     let floatingbox = document.querySelector(".floating-box");
+    let overlaylayer = document.querySelector(".overlay-layer")
 
     overview.forEach((e) => {
         e.addEventListener("click", () => {
             e.style.color = "#c87065"
             floatingbox.style.opacity = "1";
             floatingbox.style.zIndex = "2000";
-            floatingbox.style.height = "100%";
+            floatingbox.style.top = "150px";
+            overlaylayer.classList.add("overlay");
+            document.body.classList.add("no-scroll");
+            // functionalty of overview box
+    
+            // get json products
+            let JsonProducts = products;
+    
+            // get the id of the product i select
+    
+            let parentBox = e.closest(".grid-item");
+            let clickedId = +parentBox.getAttribute("id-data");
+    
+            JsonProducts.forEach((product) => {
+                if (product.id === clickedId) {
+                    document.getElementById("overviewImage").setAttribute("src", product.image);
+                    document.getElementById("overviewtitle").textContent = product.title;
+                    document.getElementById("overviewdiscountPrice").textContent = "$ " + product.price;
+                    document.getElementById("overviewoldPrice").textContent ="$ " + product.mainprice;
+                    document.getElementById("overviewdesc").textContent = product.description;
+
+                    // overviewAddCart button
+                    let overviewAddCart = document.getElementById("overviewAddCart");
+
+                    let overviewclickCount = 0;
+                    overviewAddCart.addEventListener("click", () => {
+                        overviewclickCount++;
+
+                        let amount = document.getElementById("amount").value;
+
+                        if (overviewclickCount ===1) {
+                            // add amount value to localsotrage to use in cart page
+                            window.localStorage.setItem(`amountOfProduct${product.id}`, amount)
+
+                            // add product to cart
+
+                            let addToCartIcon = document.querySelectorAll(".AddToCart");
+                            let NumberOfPieces = document.getElementById("NumberOfPieces");
+
+                            addToCartIcon.forEach((e) => {
+                                let clickCount = 0;
+
+                                clickCount++;
+
+                                // the parent of Purchase and parent id
+
+                                let parentbox = e.closest(".parent");
+                                let parentId = +parentbox.getAttribute("id-data");
+                                if (parentId == product.id) {
+                                    e.style.color = "#c87065";
+                                    let number = +NumberOfPieces.textContent;
+                                    // NumberOfPieces.textContent = number + 1;
+
+                                    if (localStorage.getItem(`item${parentId}`)) {
+                                        // Style the icon
+                                        NumberOfPieces.textContent;
+                                    } else {
+                                        NumberOfPieces.textContent = number + 1;
+                                    }
+
+                                    // set the id to local storage
+                                    window.localStorage.setItem(`item${parentId}`, parentId)
+                                }
+                            })
+                        } else if (overviewclickCount ===2) {
+                            alert("the item just added to cart!")
+                            overviewclickCount == 0
+                        }
+                    })
+                }
+            });
+        })
+
+    })
+
+    // cancel button to remove overview
+    let cancelButton = document.getElementById("cancel");
+
+    cancelButton.addEventListener("click", () => {
+        floatingbox.style.opacity = "0";
+        floatingbox.style.zIndex = "-10";
+        floatingbox.style.top = "-100%";
+        overlaylayer.classList.remove("overlay");
+        document.body.classList.remove("no-scroll");
+        overview.forEach((e) => {
+            e.style.color = "#666666";
         })
     })
-    
 }
 
 // execute the all function we make it await and then execute the load from localstorage 

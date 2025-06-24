@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "pen making machine",
-        "price": 56.20,
+        "price": 56,
         "mainprice":70,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
@@ -16,7 +16,7 @@
     {
         "id": 2,
         "title": "Distinctive dining table",
-        "price": 40.99,
+        "price": 40,
         "mainprice": 50,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
@@ -45,7 +45,7 @@
     {
         "id": 4,
         "title": "An open drawer.",
-        "price": 70,
+        "price": 73,
         "mainprice": 90,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
@@ -60,7 +60,7 @@
     {
         "id": 5,
         "title": "Big table for gathering",
-        "price": 90.80,
+        "price": 90,
         "mainprice": 110,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
@@ -75,7 +75,7 @@
     {
         "id": 6,
         "title": "boiled egg holder",
-        "price": 10.80,
+        "price": 10,
         "mainprice": 15,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
@@ -89,7 +89,7 @@
     {
         "id": 7,
         "title": "sponge chair",
-        "price": 63.80,
+        "price": 63,
         "mainprice": 70,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
@@ -104,7 +104,7 @@
     {
         "id": 8,
         "title": "wooden dressing table",
-        "price": 100.80,
+        "price": 100,
         "mainprice": 150,
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have be suffered alteration in some form, by injected humou or randomised words which donot look even slightly believable. If you are going to use a passage of Lorem Ipsum",
         "category": "Product",
