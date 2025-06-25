@@ -97,9 +97,81 @@
                     </table>
                 </div>
             </div>
+            <div class="check-out">
+                <div class="invoice f-center f-d-column">
+                    <form class="w-full f-center f-d-column">
+                        <input class="d-block" type="text" name="username" id="username" title="username" placeholder="Username....." required>
+                        <input class="d-block" type="text" name="address" id="address" title="address" placeholder="address...." required>
+                        <input class="d-block" type="text" name="number" id="number" title="number" placeholder="phone-number....." required>
+                        <div class="data-button f-center">
+                            <button type="button" id="checkBtn">check out</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!-- end cart commponants -->
+    <!-- start invoice card-->
+    <div class="invoice-box p-relative">
+        <button type="button" class="p-absolute" id="closeinvice" title="closeinvice">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <h1>INVOICE</h1>
+        <div class="info">
+            <div class="user-detail">
+                <h4>Billed To:</h4>
+                <span class="name d-block" id="userName">Mohamed Fayed</span>
+                <span class="address d-block" id="userAddress">Cairo, Egypt</span>
+                <span class="number d-block" id="userNumber">01093650836</span>
+            </div>
+            <div class="invoice-detail">
+                <div>
+                    <span>Invoice #:</span>
+                    <span id="invoiceId">INV-001</span>
+                </div>
+                <div>
+                    <span>Date:</span> <span id="invoiceDate">June 25, 2025</span>
+                </div>
+                <div>
+                    <span>Due:</span> <span id="invoicepay">July 5, 2025</span>
+                </div>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="bodyOfInvoiceProducts"></tbody>
+        </table>
+        <div class="totals f-center">
+            <table>
+                <tr>
+                    <td><h3>Subtotal:</h3></td>
+                    <td id="totalPrice">0</td>
+                </tr>
+                <tr>
+                    <td><h3>Tax (5%):</h3></td>
+                    <td id="Tax">0</td>
+                </tr>
+                <tr>
+                    <td><h3>Total:</h3></td>
+                    <td id="totalAfterTax">0</td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+            Thank you for your business! <br>
+            Please make payment by the due date <br>
+            We will contact you as soon as possible.
+        </div>
+    </div>
+    <!-- end invoice card-->
     <!-- start footer -->
     <footer>
         <div class="contact-us">
