@@ -111,7 +111,7 @@ swiperslideBox.forEach((e) => {
 })
 
 // fetch the json file to website
-fetch(`${window.location.origin}/Wooden-accessories-store/main.json`).then((x) => {
+fetch("./main.json").then((x) => {
     let y = x.json()
     return y;
 }).then((y) => {
@@ -256,6 +256,6 @@ second.textContent = s;
 
 // functionalty of online products categories
 
-import { headerFunctionalty, loadCartFromLocalStorage } from './shared.js'
+import { headerFunctionalty, loadCartFromLocalStorage } from './js/shared.js'
 headerFunctionalty();
 loadCartFromLocalStorage();
