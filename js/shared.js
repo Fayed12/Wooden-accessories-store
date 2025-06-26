@@ -145,6 +145,12 @@ async function loadproducts() {
             }
         }
 
+
+        // image
+
+        const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+        const base = isLocal ? "" : "/" + window.location.pathname.split("/")[1];
+        let image = `${base}/${e.image}`;
         // create the box content
         box.innerHTML = `<div class="slide-content">
                                     <div class="slide-header d-flex j-between align-center">
@@ -155,7 +161,7 @@ async function loadproducts() {
                                         </div>
                                     </div>
                                     <div class="image">
-                                        <img src="${e.image}" alt="images">
+                                        <img src="${image}" alt="images">
                                     </div>
                                     <div class="slide-footer">
                                         <div class="title f-center f-d-column">
