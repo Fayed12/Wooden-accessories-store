@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="mohamed fayed">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--all min css file  -->
     <link rel="stylesheet" href="../css/all.min.css">
@@ -82,7 +83,7 @@
                 <div class="contact-content d-flex g-20 f-wrap">
                     <div class="author">
                         <h3>contact information</h3>
-                        <p>Feel free to reach out with any questions about the book, speaking engagements, or media inquiries.</p>
+                        <p>Feel free to reach out with any questions about the wood accessorize, speaking engagements, or media inquiries.</p>
                         <div class="d-flex author-info">
                             <i class="fa-regular fa-envelope"></i>
                             <div>
@@ -112,7 +113,7 @@
                         </div>
                     </div>
                     <div class="contact-us">
-                        <form>
+                        <form method="post">
                             <div class="name-email d-flex gap-10 margin-b-25">
                                 <div class="name p-relative">
                                     <label class="d-block" for="name">Your Name</label>
@@ -120,19 +121,19 @@
                                 </div>
                                 <div class="email p-relative">
                                     <label class="d-block" for="email">Your Email</label>
-                                    <input class="w-full" type="email" name="email" id="email" placeholder="joun Doe@example.com">
+                                    <input class="w-full" type="email" name="email" id="email" placeholder="jounDoe1@example.com">
                                 </div>
                             </div>
                             <div class="subject p-relative margin-b-25">
                                 <label  class="d-block" for="sub">subject</label>
-                                <input class="w-full" type="text" name="subject" id="sub" placeholder="l loved your book !">
+                                <input class="w-full" type="text" name="subject" id="sub" placeholder="l loved your accessorize !">
                             </div>
                             <div class="message p-relative margin-b-25">
                                 <label  class="d-block" for="message">Message</label>
                                 <textarea class="w-full" name="message" id="message" placeholder=" your message here...."></textarea>
                             </div>
                             <div class="button p-relative flex-center">
-                                <input type="submit" value="Send Message" >
+                                <button type="submit" id="submitBtn">Send Message</button>
                             </div>
                         </form>
                     </div>
@@ -168,19 +169,19 @@
                         <h3>accounts</h3>
                         <ul>
                             <li>
-                                <a href="#">My account</a>
+                                <a href="../index.html">My account</a>
                             </li>
                             <li>
-                                <a href="#">My Wishlistt</a>
+                                <a href="../html/cart.html">My Wishlistt</a>
                             </li>
                             <li>
-                                <a href="#">My cart</a>
+                                <a href="../html/cart.html">My cart</a>
                             </li>
                             <li>
-                                <a href="#">Sign In</a>
+                                <a href="../html/Contact.html">Sign In</a>
                             </li>
                             <li>
-                                <a href="#">Check out</a>
+                                <a href="../html/cart.html">Check out</a>
                             </li>
                         </ul>
                     </div>
@@ -222,6 +223,15 @@
         <i class="fa-solid fa-plane-up"></i>
     </div>
     <!-- end footer -->
+    <!-- start thanks message -->
+    <div class="Acceptmessage f-d-column f-center">
+        <i class="fa-solid fa-circle-check"></i>
+        <h3>Thank you <span id="messageName"></span></h3>
+        <p>we will contact you later</p>
+        <p>Roots Wood Products Company Information and Communication Center</p>
+        <p>Click anywhere to cancel</p>
+    </div>
+    <!-- end thanks message -->
     <!-- js files -->
     <script type="module" src="../js/heading.js"></script>
 </body>
