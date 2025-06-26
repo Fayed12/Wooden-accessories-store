@@ -119,7 +119,7 @@ async function productsFromJson() {
                     row.remove();
                     window.localStorage.removeItem(`item${productId}`);
                     window.localStorage.removeItem(`amountOfProduct${productId}`)
-                    // --count;
+
                     let remainingRows = boxTable.querySelectorAll("tr").length;
                     NumberOfPieces.textContent = remainingRows;
                 }
@@ -132,9 +132,6 @@ async function productsFromJson() {
 }
 
 // functionalty of check out
-
-
-
 
 async function invoiceCart() {
     await productsFromJson();
@@ -236,37 +233,41 @@ async function invoiceCart() {
                     // functionalty of products invoice
 
                     let totalPriceArray = [];
+                    
+                    document.getElementById("bodyOfInvoiceProducts").innerHTML = ""
                     products.forEach((e) => {
                         let productId = e.id;
-                        if (e.id == window.localStorage.getItem(`item${productId}`)) {
+                        if (window.localStorage.getItem(`item${productId}`)) {
+                            if (e.id == window.localStorage.getItem(`item${productId}`)) {
 
-                            let amount = window.localStorage.getItem(`amountOfProduct${productId}`);
-                            let totalprice = (e.price) * amount;
-                            totalPriceArray.push(totalprice);
+                                let amount = window.localStorage.getItem(`amountOfProduct${productId}`);
+                                let totalprice = (e.price) * amount;
+                                totalPriceArray.push(totalprice);
 
-                            let redusePrice = totalPriceArray.reduce((accumulator, currentValue) => {
-                                return accumulator + currentValue;
-                            })
+                                let redusePrice = totalPriceArray.reduce((accumulator, currentValue) => {
+                                    return accumulator + currentValue;
+                                })
 
-                            let finaltotalprice = redusePrice;
+                                let finaltotalprice = redusePrice;
 
-                            let bodyOfInvoiceProducts = document.getElementById("bodyOfInvoiceProducts");
+                                let bodyOfInvoiceProducts = document.getElementById("bodyOfInvoiceProducts");
 
-                            let rowInBody = document.createElement("tr");
-                            rowInBody.innerHTML = `<td>${e.title}</td>
-                                <td>${amount}</td>
-                                <td>$${e.price}</td>
-                                <td>$${totalprice}</td>`
-                            bodyOfInvoiceProducts.append(rowInBody)
+                                let rowInBody = document.createElement("tr");
+                                rowInBody.innerHTML = `<td>${e.title}</td>
+                                    <td>${amount}</td>
+                                    <td>$${e.price}</td>
+                                    <td>$${totalprice}</td>`
+                                bodyOfInvoiceProducts.append(rowInBody)
 
-                            // set the footer of the invoice
+                                // set the footer of the invoice
 
-                            document.getElementById("totalPrice").textContent = "$" + finaltotalprice;
-                            let tax = finaltotalprice * 0.05;
-                            document.getElementById("Tax").textContent = "$" + tax
+                                document.getElementById("totalPrice").textContent = "$" + finaltotalprice;
+                                let tax = finaltotalprice * 0.05;
+                                document.getElementById("Tax").textContent = "$" + tax
 
-                            let finaltotal = finaltotalprice - tax
-                            document.getElementById("totalAfterTax").textContent = "$" + finaltotal
+                                let finaltotal = finaltotalprice - tax
+                                document.getElementById("totalAfterTax").textContent = "$" + finaltotal
+                            }
                         }
                     })
                 }

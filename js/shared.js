@@ -113,7 +113,7 @@ async function loadproducts() {
     products = onlineProducts;
 
     // display the first 8 products 
-    onlineProducts.length = 8;
+    // onlineProducts.length = 10;
     onlineProducts.forEach((e) => {
 
         // create the box div 
@@ -445,6 +445,7 @@ export async function loadCartFromLocalStorage() {
             let clickedId = +parentBox.getAttribute("id-data");
 
             JsonProducts.forEach((product) => {
+                
                 if (product.id === clickedId) {
                     document.getElementById("overviewImage").setAttribute("src", `../${product.image}`);
                     document.getElementById("overviewtitle").textContent = product.title;
