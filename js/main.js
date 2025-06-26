@@ -111,7 +111,7 @@ swiperslideBox.forEach((e) => {
 })
 
 // fetch the json file to website
-fetch("../main.json").then((x) => {
+fetch(`${window.location.origin}/Wooden-accessories-store/main.json`).then((x) => {
     let y = x.json()
     return y;
 }).then((y) => {
