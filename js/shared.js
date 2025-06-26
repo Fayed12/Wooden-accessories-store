@@ -104,7 +104,11 @@ let cardContainer = document.getElementById("cardContainer")
 let products;
 
 async function loadproducts() {
-    let respons = await fetch(`${window.location.origin}/Wooden-accessories-store/main.json`);
+    const isLocalhost = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+    const repo = isLocalhost ? "" : "/" + window.location.pathname.split("/")[1];
+    const url = `${window.location.origin}${repo}/main.json`.replace(/\s/g, ""); // إزالة أي مسافة
+
+    let respons = await fetch(url);
     let onlineProducts = await respons.json();
     products = onlineProducts;
 
@@ -151,7 +155,7 @@ async function loadproducts() {
                                         </div>
                                     </div>
                                     <div class="image">
-                                        <img src=".${e.image}" alt="images">
+                                        <img src="${e.image}" alt="images">
                                     </div>
                                     <div class="slide-footer">
                                         <div class="title f-center f-d-column">
