@@ -104,7 +104,7 @@ let cardContainer = document.getElementById("cardContainer")
 let products;
 
 async function loadproducts() {
-    let respons = await fetch("./main.json");
+    let respons = await fetch("../main.json");
     let onlineProducts = await respons.json();
     products = onlineProducts;
 
