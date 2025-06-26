@@ -1,0 +1,213 @@
+/* start contact */
+.contact{
+    padding-block: 80px;
+    background-color: var(--gold-background-color);
+}
+.contact .container{
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+.main-header h3::before{
+    width: 50%;
+}
+.contact .container .author{
+    flex-basis: 40%;
+    background-color: var(--main-background-color);
+}
+.contact .container .author h3{
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+    width: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.contact .container .author h3::before{
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    background-color: var(--gold-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.contact .container .author p{
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-color);
+}
+@media (max-width:992px) {
+    .contact .container .author h3 ,
+    .contact .container .author p{
+        text-align: center;
+        font-size: 13px;
+    }
+    .contact .container .author h3{
+        font-size: 20px;
+    }
+}
+.contact .container .author .author-info{
+    margin-bottom: 30px;
+}
+.contact .container .author .author-info i{
+    display: flex;
+    align-items: center;
+    margin-right: 18px;
+    color: var(--gold-color);
+    font-size: 18px;
+}
+.contact .container .author .author-info > div span:first-child{
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+.contact .container .author .author-info > div span:last-child{
+    font-weight: 300;
+    font-size: 15px;
+    color:var(--text-color);
+    width: 220px;
+    display: block;
+}
+.contact .container .author .icon a{
+    display: inline-block;
+}
+.contact .container .author .icon a:not(:last-child){
+    margin-right: 10px;
+}
+.contact .container .author .icon a i{
+    color: white;
+    background-color:var(--gold-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: var(--transition);
+}
+.contact .container .author .icon a i:hover{
+    background-color: var(--gold-color);
+    color: white;
+    transform: translateY(-5px);
+}
+@media (max-width:768px) {
+    .contact .container .author .author-info i{
+        font-size: 15px;
+    }
+    .contact .container .author .author-info > div span:first-child{
+        font-size: 16px;
+    }
+    .contact .container .author .author-info > div span:last-child{
+        font-size: 13px;
+    }
+    .contact .container .author .icon a i{
+        font-size: 15px;
+        width: 30px;
+        height: 30px;
+    }
+}
+.contact .container .author ,
+.contact .container .contact-us{
+    padding: 25px;
+    border-radius: 20px;
+    border-top:4px solid var(--gold-color);
+}
+.contact .container .contact-us{
+    flex-basis: calc((100% - 40%) - 20px);
+    background-color: var(--main-background-color)
+}
+.contact .container .contact-us form .name-email{
+    margin-bottom: 25px;
+}
+@media (max-width:768px) {
+    .contact .container .contact-us form .name-email{
+        flex-direction: column;
+    }
+    .contact .container .author ,
+    .contact .container .contact-us{
+        border-top: none;
+    }
+}
+.contact .container .contact-us form  input{
+    min-height: 50px;
+    text-indent: 15px;
+    outline: none;
+    border: 1px solid var(--gold-color);
+    border-radius: 15px;
+    transition: var(--transition);
+}
+.contact .container .contact-us form textarea{
+    height: 130px;
+    resize: none;
+    outline: none;
+    border: 1px solid #dcdbdb;
+    border-radius: 15px;
+    text-indent: 15px;
+    padding: 10px;
+    transition: var(--transition);
+}
+.contact .container .contact-us form  input::placeholder , 
+.contact .container .contact-us form textarea::placeholder{
+    opacity: .5;
+}
+.contact .container .contact-us form  input:focus , 
+.contact .container .contact-us form textarea:focus{
+    border-color:var(--gold-color);
+    caret-color: var(--gold-color);
+}
+.contact .container .contact-us form .button input{
+    width: 170px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--gold-color);
+    color: white;
+    transition: var(--transition);
+    font-size: 18px;
+    text-indent: 0;
+    cursor: pointer;
+}
+.contact .container .contact-us form .button input:hover{
+    background-color: var(--light-gold-color);
+    transform: translateY(-5px);
+}
+.contact .container .contact-us form  label{
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.contact .container .contact-us form .name-email .name{
+    flex-basis: 48%;
+}
+@media (max-width:768px) {
+    .contact .container .contact-us form label{
+        font-size: 14px;
+    }
+    .contact .container .contact-us form  input::placeholder , 
+    .contact .container .contact-us form textarea::placeholder{
+        font-size: 13px;
+    }
+    .contact .container .contact-us form .button input{
+        font-size: 15px;
+        width: 150px;
+    }
+}
+.contact .container .contact-us form .name-email .email{
+    flex-basis: calc((100% - 48%) - 10px);
+}
+@media (max-width:992px) {
+    .contact .container .contact-content {
+        flex-direction: column;
+    }
+    .contact .container .author{
+        flex-basis: 100%;
+    }
+    .contact .container .contact-us{
+        flex-basis: 100%;
+    }
+}
+/* end contact */

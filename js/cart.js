@@ -1,81 +1,8 @@
-// functionalty of scroller
+// functionalty of header like cart icon and nav bar
 
-let element = document.querySelector(".scroller")
+import { headerFunctionalty} from './shared.js'
+headerFunctionalty();
 
-window.addEventListener("scroll", () => {
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-    let scrolltop = document.documentElement.scrollTop
-    element.style.width = `${(((scrolltop / height) * 100))}%`
-})
-// ===============================================================================================
-
-// functionalty of to top button
-
-let button = document.querySelector(".to-top-button");
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY >= 100) {
-        button.style.opacity = 1;
-    } else {
-        button.style.opacity = 0;
-    }
-});
-
-button.addEventListener("click", () => {
-    document.querySelector(".cart-home").scrollIntoView({ behavior: "smooth" });
-});
-// ===============================================================================================
-
-// functionalty of bar Content
-
-let barContent = document.getElementById("barContent")
-let spanOne = document.getElementById("spanOne")
-let spanTwo = document.getElementById("spanTwo")
-let spanThree = document.getElementById("spanThree")
-let menu = document.getElementById("menu");
-let overlaylayer = document.querySelector(".overlay-layer")
-
-barContent.addEventListener("click", () => {
-    spanOne.classList.toggle("left");
-    spanTwo.classList.toggle("hide");
-    spanThree.classList.toggle("right");
-    menu.classList.toggle("display");
-    overlaylayer.classList.toggle("overlay");
-})
-
-document.addEventListener("click", (e) => {
-    if (menu.classList.contains("display")) {
-        // Check if click is outside the navbar and button
-        if (!barContent.contains(e.target) && (!menu.contains(e.target))) {
-            menu.classList.toggle("display");
-            spanOne.classList.toggle("left");
-            spanTwo.classList.toggle("hide");
-            spanThree.classList.toggle("right");
-            overlaylayer.classList.remove("overlay")
-        }
-    };
-})
-
-window.onscroll = (e) => {
-    if (menu.classList.contains("display")) {
-        // Check if click is outside the navbar and button
-        if (!barContent.contains(e.target) && (!menu.contains(e.target))) {
-            menu.classList.toggle("display")
-            spanOne.classList.toggle("left");
-            spanTwo.classList.toggle("hide");
-            spanThree.classList.toggle("right");
-            overlaylayer.classList.remove("overlay")
-        }
-    };
-}
-// ===============================================================================================
-
-// functionalty of cartIicon
-let cartIicon = document.getElementById("cartIicon");
-
-cartIicon.addEventListener("click", () => {
-    window.location.href = "../index.html";
-})
 // ===============================================================================================
 
 // functionalty of cart

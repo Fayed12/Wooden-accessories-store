@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <!-- cart css file -->
     <link rel="stylesheet" href="../css/cart.css">
-    <title>cart</title>
+    <!-- cart css file -->
+    <link rel="stylesheet" href="../css/contact.css">
+    <title>contact</title>
 </head>
 <body class="p-relative">
     <!-- overlay -->
@@ -49,128 +51,96 @@
                     <img src="../images/logopage.jpg" alt="pagelogo" >
                 </div>
                 <div class="cart-icon p-relative" id="cartIicon">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="NumberOfPieces" class="f-center">0</span>
+                    <i class="fa-solid fa-shop"></i>
                 </div>
             </div>
         </div>
     </header>
     <!-- end header -->
-    <!-- start cart home -->
+    <!-- start contact home -->
     <div class="cart-home p-relative">
         <div class="image p-absolute">
             <img src="../images/shopping.webp" alt="">
         </div>
         <div class="container h-full">
                 <div class="home-content h-full">
-                    <h3>check out</h3>
+                    <h3>Contact Us</h3>
                     <div class="page">
-                        <span>Home / check out</span>
+                        <span>Home / Contact Us</span>
                     </div>
                 </div>
             </div>
     </div>
-    <!-- end cart home -->
-    <!-- start cart commponants -->
-    <div class="cart-body">
-        <div class="container">
-            <div class="title-of-pages">
-                <ul class="d-flex f-center">
-                    <li class="f-center active" id="shoppingcart">shopping cart</li>
-                    <li class="f-center" id="wishlist">wishlist</li>
-                </ul>
-            </div>
-            <div class="table">
-                <div class="table-content">
-                    <table class="w-full">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
-                                <th>Remove</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody"></tbody>
-                    </table>
+    <!-- end contact home -->
+    <!-- start contact -->
+    <section>
+        <div class="contact w-full">
+            <div class="container">
+                <div class="main-header f-center">
+                    <h3>Contact</h3>
                 </div>
-            </div>
-            <div class="check-out">
-                <div class="invoice f-center f-d-column">
-                    <form class="w-full f-center f-d-column">
-                        <input class="d-block" type="text" name="username" id="username" title="username" placeholder="Username....." required>
-                        <input class="d-block" type="text" name="address" id="address" title="address" placeholder="address...." required>
-                        <input class="d-block" type="text" name="number" id="number" title="number" placeholder="phone-number....." required>
-                        <div class="data-button f-center">
-                            <button type="button" id="checkBtn">check out</button>
+                <div class="contact-content d-flex g-20 f-wrap">
+                    <div class="author">
+                        <h3>contact information</h3>
+                        <p>Feel free to reach out with any questions about the book, speaking engagements, or media inquiries.</p>
+                        <div class="d-flex author-info">
+                            <i class="fa-regular fa-envelope"></i>
+                            <div>
+                                <span class="d-flex">Email: </span>
+                                <span>author@example.com</span>
+                            </div>
                         </div>
-                    </form>
+                        <div class="d-flex author-info">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <span class="d-flex">Phone: </span>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                        </div>
+                        <div class="d-flex author-info">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <span class="d-flex">Address: </span>
+                                <span>123 Book Street, Literary Lane Wordsmith City, NY 10001</span>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <a title="facebook" href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a title="twitter" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a title="instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a title="linkedin" href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-us">
+                        <form>
+                            <div class="name-email d-flex gap-10 margin-b-25">
+                                <div class="name p-relative">
+                                    <label class="d-block" for="name">Your Name</label>
+                                    <input class="w-full" type="text" name="name" id="name" placeholder="John Doe">
+                                </div>
+                                <div class="email p-relative">
+                                    <label class="d-block" for="email">Your Email</label>
+                                    <input class="w-full" type="email" name="email" id="email" placeholder="joun Doe@example.com">
+                                </div>
+                            </div>
+                            <div class="subject p-relative margin-b-25">
+                                <label  class="d-block" for="sub">subject</label>
+                                <input class="w-full" type="text" name="subject" id="sub" placeholder="l loved your book !">
+                            </div>
+                            <div class="message p-relative margin-b-25">
+                                <label  class="d-block" for="message">Message</label>
+                                <textarea class="w-full" name="message" id="message" placeholder=" your message here...."></textarea>
+                            </div>
+                            <div class="button p-relative flex-center">
+                                <input type="submit" value="Send Message" >
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end cart commponants -->
-    <!-- start invoice card-->
-    <div class="invoice-box p-relative">
-        <button type="button" class="p-absolute" id="closeinvice" title="closeinvice">
-            <i class="fa-regular fa-circle-xmark"></i>
-        </button>
-        <h1>INVOICE</h1>
-        <div class="info">
-            <div class="user-detail">
-                <h4>Billed To:</h4>
-                <span class="name d-block" id="userName">Mohamed Fayed</span>
-                <span class="address d-block" id="userAddress">Cairo, Egypt</span>
-                <span class="number d-block" id="userNumber">01093650836</span>
-            </div>
-            <div class="invoice-detail">
-                <div>
-                    <span>Invoice #:</span>
-                    <span id="invoiceId">INV-001</span>
-                </div>
-                <div>
-                    <span>Date:</span> <span id="invoiceDate">June 25, 2025</span>
-                </div>
-                <div>
-                    <span>Due:</span> <span id="invoicepay">July 5, 2025</span>
-                </div>
-            </div>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Qty</th>
-                    <th>Price</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody id="bodyOfInvoiceProducts"></tbody>
-        </table>
-        <div class="totals f-center">
-            <table>
-                <tr>
-                    <td><h3>Subtotal:</h3></td>
-                    <td id="totalPrice">0</td>
-                </tr>
-                <tr>
-                    <td><h3>Tax (5%):</h3></td>
-                    <td id="Tax">0</td>
-                </tr>
-                <tr>
-                    <td><h3>Total:</h3></td>
-                    <td id="totalAfterTax">0</td>
-                </tr>
-            </table>
-        </div>
-        <div class="footer">
-            Thank you for your business! <br>
-            Please make payment by the due date <br>
-            We will contact you as soon as possible.
-        </div>
-    </div>
-    <!-- end invoice card-->
+    </section>
+    <!-- end contact -->
     <!-- start footer -->
     <footer>
         <div class="contact-us">
@@ -253,6 +223,6 @@
     </div>
     <!-- end footer -->
     <!-- js files -->
-    <script type="module" src="../js/cart.js"></script>
+    <script type="module" src="../js/heading.js"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <!-- cart css file -->
     <link rel="stylesheet" href="../css/cart.css">
-    <title>cart</title>
+    <title>Products</title>
 </head>
 <body class="p-relative">
     <!-- overlay -->
@@ -56,121 +56,55 @@
         </div>
     </header>
     <!-- end header -->
-    <!-- start cart home -->
+    <!-- start Products home -->
     <div class="cart-home p-relative">
         <div class="image p-absolute">
             <img src="../images/shopping.webp" alt="">
         </div>
         <div class="container h-full">
                 <div class="home-content h-full">
-                    <h3>check out</h3>
+                    <h3>Products</h3>
                     <div class="page">
-                        <span>Home / check out</span>
+                        <span>Home / Shop</span>
                     </div>
                 </div>
             </div>
     </div>
-    <!-- end cart home -->
-    <!-- start cart commponants -->
-    <div class="cart-body">
-        <div class="container">
-            <div class="title-of-pages">
-                <ul class="d-flex f-center">
-                    <li class="f-center active" id="shoppingcart">shopping cart</li>
-                    <li class="f-center" id="wishlist">wishlist</li>
-                </ul>
-            </div>
-            <div class="table">
-                <div class="table-content">
-                    <table class="w-full">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
-                                <th>Remove</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody"></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="check-out">
-                <div class="invoice f-center f-d-column">
-                    <form class="w-full f-center f-d-column">
-                        <input class="d-block" type="text" name="username" id="username" title="username" placeholder="Username....." required>
-                        <input class="d-block" type="text" name="address" id="address" title="address" placeholder="address...." required>
-                        <input class="d-block" type="text" name="number" id="number" title="number" placeholder="phone-number....." required>
-                        <div class="data-button f-center">
-                            <button type="button" id="checkBtn">check out</button>
+    <!-- end Products home -->
+    <!-- start products-->
+    <section>
+        <div class="purchase">
+            <div class="container">
+                <div class="purchase-content">
+                    <div class="main-header f-center">
+                        <h3>products</h3>
+                    </div>
+                    <div class="Online-products">
+                        <div class="categories f-center">
+                            <ul class="d-flex">
+                                <li>
+                                    <span class="active p-relative" id="arrivals">New Arrivals</span>
+                                </li>
+                                <li>
+                                    <span class="p-relative" id="seller">Best Seller</span>
+                                </li>
+                                <li>
+                                    <span class="p-relative" id="view">Most View</span>
+                                </li>
+                                <li>
+                                    <span class="p-relative" id="discounts">Discounts</span>
+                                </li>
+                            </ul>
                         </div>
-                    </form>
+                        <div class="Online-products-content">
+                            <div class="products-cards" id="cardContainer"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end cart commponants -->
-    <!-- start invoice card-->
-    <div class="invoice-box p-relative">
-        <button type="button" class="p-absolute" id="closeinvice" title="closeinvice">
-            <i class="fa-regular fa-circle-xmark"></i>
-        </button>
-        <h1>INVOICE</h1>
-        <div class="info">
-            <div class="user-detail">
-                <h4>Billed To:</h4>
-                <span class="name d-block" id="userName">Mohamed Fayed</span>
-                <span class="address d-block" id="userAddress">Cairo, Egypt</span>
-                <span class="number d-block" id="userNumber">01093650836</span>
-            </div>
-            <div class="invoice-detail">
-                <div>
-                    <span>Invoice #:</span>
-                    <span id="invoiceId">INV-001</span>
-                </div>
-                <div>
-                    <span>Date:</span> <span id="invoiceDate">June 25, 2025</span>
-                </div>
-                <div>
-                    <span>Due:</span> <span id="invoicepay">July 5, 2025</span>
-                </div>
-            </div>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Qty</th>
-                    <th>Price</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody id="bodyOfInvoiceProducts"></tbody>
-        </table>
-        <div class="totals f-center">
-            <table>
-                <tr>
-                    <td><h3>Subtotal:</h3></td>
-                    <td id="totalPrice">0</td>
-                </tr>
-                <tr>
-                    <td><h3>Tax (5%):</h3></td>
-                    <td id="Tax">0</td>
-                </tr>
-                <tr>
-                    <td><h3>Total:</h3></td>
-                    <td id="totalAfterTax">0</td>
-                </tr>
-            </table>
-        </div>
-        <div class="footer">
-            Thank you for your business! <br>
-            Please make payment by the due date <br>
-            We will contact you as soon as possible.
-        </div>
-    </div>
-    <!-- end invoice card-->
+    </section>
+    <!-- end products-->
     <!-- start footer -->
     <footer>
         <div class="contact-us">
@@ -252,7 +186,51 @@
         <i class="fa-solid fa-plane-up"></i>
     </div>
     <!-- end footer -->
+    <!-- start floating overview box-->
+    <div class="floating-box">
+        <div class="floating-content">
+            <div class="floating-box-content d-flex">
+                <div class="image" >
+                    <img id="overviewImage" src="" alt="Product">
+                </div>
+                <div class="box-desc p-relative">
+                    <button type="button" id="cancel" title="cancel" class="p-absolute">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="desc-content">
+                        <div class="title">
+                            <h3 id="overviewtitle"></h3>
+                        </div>
+                        <div class="price">
+                            <span id="overviewdiscountPrice"></span>
+                            <span ><del id="overviewoldPrice">/del></span>
+                        </div>
+                        <div class="all-products">
+                            <a href="#">See all features</a>
+                        </div>
+                        <div class="amount">
+                            <input type="number" name="amount" min="1" max="20" step="1" value="1" id="amount" title="amount">
+                            <button type="button" title="addtocart" id="overviewAddCart">Add to cart</button>
+                        </div>
+                        <div class="description">
+                            <p id="overviewdesc"></p>
+                        </div>
+                        <div class="sharing">
+                            <h4>Share this product</h4>
+                            <div class="social-media d-flex">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <i class="fa-brands fa-x-twitter"></i>
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end floating overview box-->
     <!-- js files -->
-    <script type="module" src="../js/cart.js"></script>
+    <script type="module" src="../js/products.js"></script>
 </body>
 </html>
